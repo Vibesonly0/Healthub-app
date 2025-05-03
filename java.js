@@ -10,6 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const signupBtn = document.getElementById('signup-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const userName = document.getElementById('user-name');
+    // Mobile menu toggle
+document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.tabs').classList.toggle('mobile-menu-open');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    const tabs = document.querySelector('.tabs');
+    const toggle = document.getElementById('mobile-menu-toggle');
+    
+    if (!tabs.contains(e.target) && e.target !== toggle) {
+        tabs.classList.remove('mobile-menu-open');
+    }
+});
 
     // Toggle between login and signup forms
     showSignup.addEventListener('click', function(e) {
